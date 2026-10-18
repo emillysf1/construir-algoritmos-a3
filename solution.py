@@ -3,7 +3,10 @@ import os
 import requests
 import folium
 
-TOKEN = os.getenv("SPTRANS_TOKEN", "6a0c0951374f4e5f0e1d8d0611d27d8ebe91b2a6f2a949893c6d8d9c7b6e0913")
+TOKEN = os.getenv("SPTRANS_TOKEN")
+
+if not TOKEN:
+    raise RuntimeError("Defina a variável de ambiente SPTRANS_TOKEN.")
 BASE_URL = "https://api.olhovivo.sptrans.com.br/v2.1"
 BUSCA_LINHA = "875A" 
 BUSCA_PARADA = "TERMINAL" 
